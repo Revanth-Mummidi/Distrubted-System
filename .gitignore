@@ -1,0 +1,8 @@
+.env
+
+worker/node_modules
+frontend/node_modules
+ingestion/node_modules
+notification/node_modules
+status/node_modules
+load-test/node_modules

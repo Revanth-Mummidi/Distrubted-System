@@ -1,0 +1,16 @@
+{
+  "name": "status",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "ioredis": "^5.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5"
+  }
+}

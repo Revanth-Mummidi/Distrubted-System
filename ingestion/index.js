@@ -32,7 +32,8 @@ app.post('/', async (req, res) => {
   else if (priority === 'LOW') priorityValue = 3;
 
   try {
-    const job = await queues[type].add(type, { payload, webhookUrl }, {
+    const userId = req.headers['x-user-id'];
+    const job = await queues[type].add(type, { payload, webhookUrl, userId }, {
       priority: priorityValue,
       delay: delay,
       attempts: 4, // 1st try + 3 retries = 4 attempts total

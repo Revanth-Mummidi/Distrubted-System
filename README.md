@@ -18,6 +18,22 @@ browser ──► frontend (5173) ──► gateway (3000) ──► ingestion (
                                                                          └─► notification (webhooks)
 ```
 
+## Google OAuth Setup (one-time, ~5 minutes)
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/) → **APIs & Services** → **Credentials**.
+2. Click **Create Credentials** → **OAuth 2.0 Client ID**.
+3. Choose **Web application**, give it a name (e.g. `Arena`).
+4. Under **Authorised JavaScript origins** add:
+   - `http://localhost:5173` (local dev / Docker)
+5. Click **Create** — copy the **Client ID**.
+6. Paste it into your `.env`:
+   ```
+   GOOGLE_CLIENT_ID=xxxx.apps.googleusercontent.com
+   VITE_GOOGLE_CLIENT_ID=xxxx.apps.googleusercontent.com
+   ```
+
+---
+
 ## Prerequisites
 
 | Tool | Minimum version | Notes |

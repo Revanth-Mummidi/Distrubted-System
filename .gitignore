@@ -6,3 +6,5 @@ ingestion/node_modules
 notification/node_modules
 status/node_modules
 load-test/node_modules
+gateway/node_modules
+node_modules

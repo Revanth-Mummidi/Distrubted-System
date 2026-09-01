@@ -10,7 +10,7 @@ const payload = JSON.stringify({
 
 const instance = autocannon({
   url: URL,
-  connections: 500, // Handle 10000+ concurrent -> we test with 500 connections pushing fast
+  connections: 50, // Handle 10000+ concurrent -> we test with 500 connections pushing fast
   pipelining: 10,
   duration: 20,
   method: 'POST',

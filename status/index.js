@@ -49,10 +49,10 @@ setInterval(async () => {
 }, 2000);
 
 io.on('connection', (socket) => {
-  console.log('Client connected:', socket.id);
+  // console.log('Client connected:', socket.id);
 });
 
 const PORT = process.env.PORT || 3002;
 server.listen(PORT, () => {
-  console.log(`Status Service listening on port ${PORT}`);
+  // console.log(`Status Service listening on port ${PORT}`);
 });

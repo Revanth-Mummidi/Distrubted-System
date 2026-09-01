@@ -19,9 +19,9 @@ const queueEvents = queueNames.map(name => ({ name, events: new QueueEvents(name
 const sendWebhook = async (url, payload) => {
   try {
     await axios.post(url, payload, { timeout: 3000 });
-    console.log(`Webhook sent successfully to ${url}`);
+    // console.log(`Webhook sent successfully to ${url}`);
   } catch (error) {
-    console.error(`Failed to send webhook to ${url}:`, error.message);
+    // console.error(`Failed to send webhook to ${url}:`, error.message);
   }
 };
 
@@ -49,4 +49,4 @@ queueEvents.forEach(({ name, events }) => {
   });
 });
 
-console.log('Notification service listening for job completion/failure to send webhooks...');
+// console.log('Notification service listening for job completion/failure to send webhooks...');

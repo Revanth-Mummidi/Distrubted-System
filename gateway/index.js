@@ -4,6 +4,8 @@ import rateLimit from 'express-rate-limit';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
+import http from 'http';
 dotenv.config();
 
 const app = express();
@@ -46,10 +48,18 @@ app.post('/auth/login', express.json(), (req, res) => {
 // app.use('/api', authMiddleware);
 
 // Proxy to Ingestion Service
+
+const agent = new http.Agent({
+  keepAlive: true,
+  maxSockets: 500,
+  keepAliveMsecs: 10000
+});
 app.use('/api/jobs', createProxyMiddleware({
   target: process.env.INGESTION_URL || 'http://localhost:3001',
-  changeOrigin: true
+  changeOrigin: true,
+  agent: agent // Reuses persistent TCP connections
 }));
+
 
 // We proxy ws manually via status service if needed, but frontend can connect to status directly
 app.get('/health', (req, res) => res.json({ status: 'Gateway OK' }));

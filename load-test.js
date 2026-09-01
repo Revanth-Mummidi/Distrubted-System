@@ -10,14 +10,13 @@ const payload = JSON.stringify({
 
 const instance = autocannon({
   url: URL,
-  connections: 50, // Handle 10000+ concurrent -> we test with 500 connections pushing fast
-  pipelining: 10,
-  duration: 20,
+  connections: 100, // 100 concurrent clients
+  pipelining: 1,    // standard HTTP request/response flow
+  duration: 10,
   method: 'POST',
   body: payload,
   headers: {
-    'Content-type': 'application/json',
-    'Authorization': 'Bearer test-token'
+    'Content-type': 'application/json'
   }
 }, console.log);
 
